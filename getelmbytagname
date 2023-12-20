@@ -1,0 +1,5 @@
+var a=document.getElementsByTagName("li");
+a[4].style.color="blue";
+for(let i=0;i<a.length;i++){
+  a[i].style.fontStyle="italic"
+}
