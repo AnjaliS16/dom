@@ -1,0 +1,28 @@
+var a=document.querySelector("#basket-heading");
+a.style.color="brown";
+var b=document.querySelector("#main-heading")
+b.style.textAlign="right";
+var c=document.querySelector(".fruits")
+
+c.style.backgroundColor="gray"
+c.style.border="30px"
+c.style.margin="30px"
+c.style.padding="30px"
+c.style.width="50%"
+c.style.borderRadius="5px"
+c.style.listStyleType="none"
+var d=document.querySelectorAll(".fruit")
+for(let i=0;i<d.length;i++){
+d[i].style.backgroundColor="white"
+  }
+var e = document.querySelectorAll(".fruit");
+
+    e[1].style.backgroundColor = "brown"; 
+    e[1].style.color = "white";
+
+
+var f = document.querySelectorAll(".fruit")
+  
+    f[3].style.backgroundColor = "brown"; 
+    f[3].style.color = "white";
+
