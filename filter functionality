@@ -1,0 +1,106 @@
+// Add input element inside form, before button, to take fruit description
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.querySelector('form');
+  const input = document.createElement('input');
+  input.setAttribute('type', 'text');
+  input.setAttribute('name', 'description');
+  input.setAttribute('placeholder', 'Enter fruit description');
+  form.insertBefore(input, form.querySelector('button'));
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    const fruitInput = document.getElementById('fruit-to-add').value.trim();
+    const descriptionInput = document.querySelector('input[name="description"]').value.trim();
+    if (fruitInput !== '') {
+      addFruit(fruitInput, descriptionInput);
+    }
+  });
+
+  document.getElementById('filter').addEventListener('input', function (event) {
+    const searchText = event.target.value.trim().toLowerCase();
+    const fruits = document.querySelectorAll('.fruit');
+    fruits.forEach(function (fruit) {
+      const fruitName = fruit.firstChild.textContent.toLowerCase();
+      const description = fruit.querySelector('em').textContent.toLowerCase();
+      if (fruitName.includes(searchText) || description.includes(searchText)) {
+        fruit.style.display = 'block';
+      } else {
+        fruit.style.display = 'none';
+      }
+    });
+  });
+
+  function addFruit(name, description) {
+    const ul = document.querySelector('.fruits');
+    const li = document.createElement('li');
+    const button = document.createElement('button');
+    const italic = document.createElement('em');
+    const paragraph = document.createElement('p');
+
+    li.classList.add('fruit');
+    button.classList.add('delete-btn');
+    button.textContent = 'x';
+    italic.textContent = name;
+    paragraph.appendChild(italic);
+    paragraph.appendChild(document.createElement('br'));
+    italic = document.createElement('em');
+    italic.textContent = description;
+    paragraph.appendChild(italic);
+
+    li.appendChild(paragraph);
+    li.appendChild(button);
+    ul.appendChild(li);
+  }
+});document.addEventListener('DOMContentLoaded', function () {
+  const form = document.querySelector('form');
+  const input = document.createElement('input');
+  input.setAttribute('type', 'text');
+  input.setAttribute('name', 'description');
+  input.setAttribute('placeholder', 'Enter fruit description');
+  form.insertBefore(input, form.querySelector('button'));
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    const fruitInput = document.getElementById('fruit-to-add').value.trim();
+    const descriptionInput = document.querySelector('input[name="description"]').value.trim();
+    if (fruitInput !== '') {
+      addFruit(fruitInput, descriptionInput);
+    }
+  });
+
+  document.getElementById('filter').addEventListener('input', function (event) {
+    const searchText = event.target.value.trim().toLowerCase();
+    const fruits = document.querySelectorAll('.fruit');
+    fruits.forEach(function (fruit) {
+      const fruitName = fruit.firstChild.textContent.toLowerCase();
+      const description = fruit.querySelector('em').textContent.toLowerCase();
+      if (fruitName.includes(searchText) || description.includes(searchText)) {
+        fruit.style.display = 'block';
+      } else {
+        fruit.style.display = 'none';
+      }
+    });
+  });
+
+  function addFruit(name, description) {
+    const ul = document.querySelector('.fruits');
+    const li = document.createElement('li');
+    const button = document.createElement('button');
+    const italic = document.createElement('em');
+    const paragraph = document.createElement('p');
+
+    li.classList.add('fruit');
+    button.classList.add('delete-btn');
+    button.textContent = 'x';
+    italic.textContent = name;
+    paragraph.appendChild(italic);
+    paragraph.appendChild(document.createElement('br'));
+    italic = document.createElement('em');
+    italic.textContent = description;
+    paragraph.appendChild(italic);
+
+    li.appendChild(paragraph);
+    li.appendChild(button);
+    ul.appendChild(li);
+  }
+});
