@@ -1,0 +1,34 @@
+var remove3rdlastElem = function(head) {
+    
+    // Write your code here to remove the 3 rd last element from link list
+     if (!head || !head.next || !head.next.next) {
+        return; 
+    }
+
+    
+    let fast = head;
+    let slow = head;
+    let prev = null;
+
+    for (let i = 0; i <3; i++) {
+        if (fast && fast.next) {
+            fast = fast.next;
+        } 
+        else{
+            return;
+        }
+    }
+
+    while (fast !== null) {
+        prev = slow;
+        slow = slow.next;
+        fast = fast.next;
+    }
+
+   
+     if (prev) {
+        prev.next = prev.next.next;
+    } 
+    else{
+        return;
+    }
