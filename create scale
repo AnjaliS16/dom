@@ -1,0 +1,29 @@
+// Write your code below:
+function handleFormSubmit(event){
+ event.preventDefault();
+ var username=event.target.username.value;
+ var email=event.target.email.value;
+ var phone=event.target.phone.value;
+ var existingUsers = JSON.parse(localStorage.getItem('users')) || [];
+ var obj={
+    username:username,
+    email:email,
+    phone:phone
+ };
+  
+ existingUsers.push(obj);
+
+ localStorage.setItem(`user${existingUsers.length}`, JSON.stringify(obj));
+ localStorage.setItem('users', JSON.stringify(existingUsers));
+ var string = `${obj.username} - ${obj.email} - ${obj.phone}`;
+ 
+ var newli=document.createElement("li");
+ var newlit=document.createTextNode(string);
+
+ newli.appendChild(newlit);
+ var ull=document.getElementById("userList");
+ ull.appendChild(newli);
+  
+}
+
+module.exports=handleFormSubmit;
