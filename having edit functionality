@@ -1,0 +1,58 @@
+// Write your code below:
+function handleFormSubmit(event) {
+  event.preventDefault();
+  
+  var username = event.target.username.value;
+  var email = event.target.email.value;
+  var phone = event.target.phone.value;
+  
+  var obj = {
+    username: username,
+    email: email,
+    phone: phone
+  };
+
+  localStorage.setItem(email, JSON.stringify(obj));
+
+
+  var string = `${obj.username} - ${obj.email} - ${obj.phone}`;
+  var newli = document.createElement("li");
+  
+  var newlit = document.createTextNode(string);
+  newli.appendChild(newlit);
+  
+  var deleteButton = document.createElement("button");
+  deleteButton.textContent = "Delete";
+  deleteButton.addEventListener("click", function() {
+   
+    newli.remove();
+    localStorage.removeItem(email);
+  });
+  var editbutton=document.createElement("button");
+  editbutton.textContent="Edit";
+
+ 
+   editbutton.addEventListener("click", function() {
+   //  newli.remove();
+   // localStorage.removeItem(email);
+      var userData = JSON.parse(localStorage.getItem(email));
+    if (userData) {
+      document.getElementById('username').value= userData.username;
+       document.getElementById('email').value = userData.email;
+       document.getElementById('phone').value= userData.phone;
+    }
+    newli.remove();
+    localStorage.removeItem(email);
+     
+  });
+  
+  newli.appendChild(deleteButton);
+  newli.appendChild(editbutton);
+  
+  var userList = document.getElementById("userList");
+  userList.appendChild(newli);
+
+  
+}
+
+module.exports = handleFormSubmit;
