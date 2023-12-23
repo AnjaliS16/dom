@@ -1,0 +1,16 @@
+// Write your code below:
+ function handleFormSubmit(event){
+   event.preventDefault();
+  
+   var username=event.target.username.value;
+   var email=event.target.email.value;
+   var phone =event.target.phone.value;
+   const Userdetails={
+    username:username,
+    email:email,
+    phone:phone
+   };
+   
+   localStorage.setItem("User Details", JSON.stringify(Userdetails));
+  }
+module.exports=handleFormSubmit;
