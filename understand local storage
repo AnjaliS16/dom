@@ -1,0 +1,10 @@
+function handle(event){
+  event.preventDefault();
+  var a=document.getElementById("na");
+   var b=document.getElementById("em");
+   var c=document.getElementById("te");
+  localStorage.setItem(na,na.value);
+   localStorage.setItem(em,em.value);
+   localStorage.setItem(te,te.value);
+  
+}
